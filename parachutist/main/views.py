@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 
-def test(request):
-    args = {'address': 'my address'}
-    return render(request, 'main/index.html', args)
+def index(request):
+    return render(request, 'main/index.html')
+
+
+def gallery(request):
+    return render(request, 'gallery.html')

@@ -19,5 +19,6 @@ import main.views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', v.test),
+    path('', v.index),
+    path('gallery', v.gallery)
 ]
