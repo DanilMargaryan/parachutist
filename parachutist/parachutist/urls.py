@@ -20,5 +20,7 @@ import main.views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', v.index),
-    path('gallery', v.gallery)
+    path('gallery', v.gallery),
+    path('services', v.services),
+    path('booking', v.booking),
 ]

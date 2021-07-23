@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from main import models
 
 
 def index(request):
@@ -14,4 +15,7 @@ def services(request):
 
 
 def booking(request):
-    return render(request, 'booking.html')
+    args = {
+        'rooms': models.Room.objects.all()
+    }
+    return render(request, 'booking.html', args)
