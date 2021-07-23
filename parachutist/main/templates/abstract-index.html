@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    
+    {%block head%}
+    {%endblock%}
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__top">
+                <div class="container">
+                    <div class="header__top__inner">
+                        <p class="header__top__about-hotel">Гостиница в Подмосковье для отдыха и туризма</p>
+                        <div class="header__top__info-hotel">
+                            <a class="header__top__address" href="#">г. Киржач, улица Томаровича, дом 32/5</a>
+                            <a class="header__top__telephone" href="tel:+74923723033">+7 492 372 30 33</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__bottom">
+                <div class="container">
+                    <div class="header__bottom__inner">
+                        <a class="header__bottom__logo" href="#">
+                            ПАРАШЮТИСТ
+                        </a>
+                        <nav class="header__bottom__menu">
+                            <ul class="header__bottom__menu-list">
+                                <li class="header__bottom__menu-item">
+                                    <a href="#" class="header__bottom__menu-link">
+                                        Услуги
+                                    </a>
+                                </li>
+                                <li class="header__bottom__menu-item">
+                                    <a href="#" class="header__bottom__menu-link">
+                                        Отзывы
+                                    </a>
+                                </li>
+                                <li class="header__bottom__menu-item">
+                                    <a href="#" class="header__bottom__menu-link">
+                                        Галерея
+                                    </a>
+                                </li>
+                                <li class="header__bottom__menu-item">
+                                    <a href="#" class="header__bottom__menu-link">
+                                        Контакты
+                                    </a>
+                                </li>
+                                <li class="header__bottom__menu-item ">
+                                    <a href="#" class="header__bottom__menu-link booking__btn">
+                                        Забронировать
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+      
+        {%block content%}
+        {%endblock%}
+
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="container">
+                    <div class="footer__top">
+                        <ul class="footer__contacts">
+                            <li class="footer__contacts__item footer__contacts--telephone">
+                                <a class="footer__contacts-link " href="tel:+74923723033">
+                                    +7 492 372 30 33
+                                </a>
+                            </li>
+                            <li class="footer__contacts__item  footer__contacts--email">
+                                <a class="footer__contacts-link" href="mailto:n7364598@yandex.ru">
+                                    n7364598@yandex.ru
+                                </a>
+                            </li>
+                        </ul>
+                        <nav class="footer__menu">
+                            <ul class="footer__menu-list">
+                                <li class="footer__menu-item">
+                                    <a class="footer__menu-link" href="#">
+                                        Услуги
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a class="footer__menu-link" href="#">
+                                        Отзывы
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a class="footer__menu-link" href="#">
+                                        Галерея
+                                    </a>
+                                </li>
+                                <li class="footer__menu-item">
+                                    <a class="footer__menu-link" href="#">
+                                        Контакты
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="#" class="booking__btn">
+                            Забронировать
+                        </a>
+                    </div>
+                    <div class="footer__bottom">
+                        <a href="#" class="footer__link-instagram">
+                            <img src="static/images/instagram.svg" alt="" class="footer__instagram">
+                        </a>
+                        <a href="#" class="footer__link-vk">
+                            <img src="static/images/vk.svg" alt="" class="footer__vk">
+                        </a>
+                        <p class="footer__copyright">
+                            2021 г. ООО Парашютист
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,13 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {% for room in rooms %}
-        <p>{{room.room_number}} {{room.name}}</p>
-    {% endfor %}
-</body>
-</html>
+{% extends "abstract-index.html" %}
+
+{%block head%}
+{% load static %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+{%endblock%}
+
+{%block content%}
+
+<main class="main">
+    <!-- {% for room in rooms %}
+    <p>{{room.booked}} {{room.name}} {{room.last_name}} </p>
+    {% if room.booked %}
+
+    {% else %}
+
+    {% endif%}
+
+    {% endfor %} -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-section__form">
+                <h2 class="booking-section__title">
+                    Бронирование номеров
+                </h2>
+                <div class="booking-section__date">
+                    <div class="booking-section__calendar">
+                        <p class="booking-section__calendar-text">Дата заезда</p>
+                        <input class="booking-section__calendar-input" type="date">
+                    </div>
+                    <div class="booking-section__form__calendar">
+                        <p class="booking-section__calendar-text">Дата выезда</p>
+                        <input class="booking-section__calendar-input" type="date">
+                    </div>
+                    <button class="booking-section__booking-btn">
+                        Найти номер
+                    </button>
+                </div>
+
+            </div>    
+        </div>
+    </section>
+</main>
+{%endblock%}
+   

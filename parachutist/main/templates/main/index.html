@@ -1,274 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "abstract-index.html" %}
 
-<head >
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+{%block head%}
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-</head>
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+{%endblock%}
 
-<body>
-  <div class="wrapper">
-    <header class="header">
-      <div class="header__top">
-        <div class="container">
-          <div class="header__top__inner">
-            <p class="header__top__about-hotel">Гостиница в Подмосковье для отдыха и туризма</p>
-            <div class="header__top__info-hotel">
-              <a class="header__top__address" href="#">г. Киржач, улица Томаровича, дом 32/5</a>
-              <a class="header__top__telephone" href="tel:+74923723033">+7 492 372 30 33</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="header__bottom">
-        <div class="container">
-          <div class="header__bottom__inner">
-            <a class="header__bottom__logo" href="#">
-              ПАРАШЮТИСТ
-            </a>
-            <nav class="header__bottom__menu">
-              <ul class="header__bottom__menu-list">
-                <li class="header__bottom__menu-item">
-                  <a href="#" class="header__bottom__menu-link">
-                    Услуги
-                  </a>
-                </li>
-                <li class="header__bottom__menu-item">
-                  <a href="#" class="header__bottom__menu-link">
-                    Отзывы
-                  </a>
-                </li>
-                <li class="header__bottom__menu-item">
-                  <a href="#" class="header__bottom__menu-link">
-                    Галерея
-                  </a>
-                </li>
-                <li class="header__bottom__menu-item">
-                  <a href="#" class="header__bottom__menu-link">
-                    Контакты
-                  </a>
-                </li>
-                <li class="header__bottom__menu-item ">
-                  <a href="#" class="header__bottom__menu-link booking__btn">
-                    Забронировать
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-
-
-    <main class="main">
-
-      <section class="top">
-        <div class="container">
-          <div class="top__inner">
-            <form class="top__booking-form" action="">
-              <div class="top__form__calendar">
-                <p class="top__calendar-text">Дата заезда</p>
-                <input class="top__calendar-input" type="date">
-              </div>
-              <div class="top__form__calendar">
-                <p class="top__calendar-text">Дата выезда</p>
-                <input class="top__calendar-input" type="date">
-              </div>
-              <button class="top__booking-btn">
-                Забронировать номер
-              </button>
-            </form>
-            <img class="top__down-arrow" src="static/images/down-arrow.svg" alt="down arrow">
-          </div>
-        </div>
-      </section>
-
-      <section class="benefit">
-        <div class="container">
-          <div class="benefit__inner">
-            <div class="benefit__item benefit__item--comfort">
-              <h3 class="benefit__item-title">
-                Комфортное проживание
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Звукоизолированные номера
-                </li>
-                <li class="benefit__menu__list-item">
-                  Бесплатный Wi-Fi
-                </li>
-                <li class="benefit__menu__list-item">
-                  Кондиционер
-                </li>
-                <li class="benefit__menu__list-item">
-                  Отопление
-                </li>
-              </ul>
-            </div>
-            <div class="benefit__item benefit__item--sport">
-              <h3 class="benefit__item-title">
-                Спорт и досуг
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Парашютный курорт поблизости
-                </li>
-                <li class="benefit__menu__list-item">
-                  Катание на лыжах
-                </li>
-                <li class="benefit__menu__list-item">
-                  Библиотека
-                </li>
-              </ul>
-            </div>
-            <div class="benefit__item benefit__item--camping">
-              <h3 class="benefit__item-title">
-                Отдых на природе
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Принадлежности для барбекю 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Место для пикника 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Сад
-                </li>
-              </ul>
-            </div>
-            <div class="benefit__item benefit__item--service">
-              <h3 class="benefit__item-title">
-                Сервисы и обслуживание
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Услуги по глажению одежды 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Факс/ксерокопирование 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Услуги консьержа
-                </li>
-              </ul>
-            </div>
-            <div class="benefit__item benefit__item--staff">
-              <h3 class="benefit__item-title">
-                Отличный персонал
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Круглосуточная стойка регистрации 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Ежедневная уборка
-                </li>
-              </ul>
-            </div>
-            <div class="benefit__item benefit__item--security">
-              <h3 class="benefit__item-title">
-                Безопасность
-              </h3>
-              <ul class="benefit__menu-list">
-                <li class="benefit__menu__list-item">
-                  Видеонаблюдение 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Круглосуточная охрана 
-                </li>
-                <li class="benefit__menu__list-item">
-                  Охраняемая парковка
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="map">
+{%block content%}
         
-        <div class="map__form">
-          <h4 class="map__text">Мы на карте:</h4>
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3662291550df2dbe84ec504c34b00a17389e54714da880db7e38f5e46ebb66db&amp;source=constructor" width="966" height="490" frameborder="0"></iframe>
+<main class="main">
+
+  <section class="top">
+    <div class="container">
+      <div class="top__inner">
+        <form class="top__booking-form" action="">
+          <div class="top__form__calendar">
+            <p class="top__calendar-text">Дата заезда</p>
+            <input class="top__calendar-input" type="date">
+          </div>
+          <div class="top__form__calendar">
+            <p class="top__calendar-text">Дата выезда</p>
+            <input class="top__calendar-input" type="date">
+          </div>
+          <button class="top__booking-btn">
+            Забронировать номер
+          </button>
+        </form>
+        <img class="top__down-arrow" src="static/images/down-arrow.svg" alt="down arrow">
+      </div>
+    </div>
+  </section>
+
+  <section class="benefit">
+    <div class="container">
+      <div class="benefit__inner">
+        <div class="benefit__item benefit__item--comfort">
+          <h3 class="benefit__item-title">
+            Комфортное проживание
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Звукоизолированные номера
+            </li>
+            <li class="benefit__menu__list-item">
+              Бесплатный Wi-Fi
+            </li>
+            <li class="benefit__menu__list-item">
+              Кондиционер
+            </li>
+            <li class="benefit__menu__list-item">
+              Отопление
+            </li>
+          </ul>
         </div>
-
-      </section>
-
-    </main>
-
-    <footer class="footer">
-      <div class="footer__content">
-        <div class="container">
-          <div class="footer__top">
-            <ul class="footer__contacts">
-              <li class="footer__contacts__item footer__contacts--telephone">
-                <a class="footer__contacts-link " href="tel:+74923723033">
-                  +7 492 372 30 33
-                </a>
-              </li>
-              <li class="footer__contacts__item  footer__contacts--email">
-                <a class="footer__contacts-link" href="mailto:n7364598@yandex.ru">
-                  n7364598@yandex.ru
-                </a>
-              </li>
-            </ul>
-            <nav class="footer__menu">
-              <ul class="footer__menu-list">
-                <li class="footer__menu-item">
-                  <a class="footer__menu-link" href="#">
-                    Услуги
-                  </a>
-                </li>
-                <li class="footer__menu-item">
-                  <a class="footer__menu-link" href="#">
-                    Отзывы
-                  </a>
-                </li>
-                <li class="footer__menu-item">
-                  <a class="footer__menu-link" href="#">
-                    Галерея
-                  </a>
-                </li>
-                <li class="footer__menu-item">
-                  <a class="footer__menu-link" href="#">
-                    Контакты
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <a href="#" class="booking__btn">
-              Забронировать
-            </a>
-          </div>
-          <div class="footer__bottom">
-            <a href="#" class="footer__link-instagram">
-              <img src="static/images/instagram.svg" alt="" class="footer__instagram">
-            </a>
-            <a href="#" class="footer__link-vk">
-              <img src="static/images/vk.svg" alt="" class="footer__vk">
-            </a>
-            <p class="footer__copyright">
-              2021 г. ООО Парашютист
-            </p>
-          </div>
+        <div class="benefit__item benefit__item--sport">
+          <h3 class="benefit__item-title">
+            Спорт и досуг
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Парашютный курорт поблизости
+            </li>
+            <li class="benefit__menu__list-item">
+              Катание на лыжах
+            </li>
+            <li class="benefit__menu__list-item">
+              Библиотека
+            </li>
+          </ul>
+        </div>
+        <div class="benefit__item benefit__item--camping">
+          <h3 class="benefit__item-title">
+            Отдых на природе
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Принадлежности для барбекю
+            </li>
+            <li class="benefit__menu__list-item">
+              Место для пикника
+            </li>
+            <li class="benefit__menu__list-item">
+              Сад
+            </li>
+          </ul>
+        </div>
+        <div class="benefit__item benefit__item--service">
+          <h3 class="benefit__item-title">
+            Сервисы и обслуживание
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Услуги по глажению одежды
+            </li>
+            <li class="benefit__menu__list-item">
+              Факс/ксерокопирование
+            </li>
+            <li class="benefit__menu__list-item">
+              Услуги консьержа
+            </li>
+          </ul>
+        </div>
+        <div class="benefit__item benefit__item--staff">
+          <h3 class="benefit__item-title">
+            Отличный персонал
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Круглосуточная стойка регистрации
+            </li>
+            <li class="benefit__menu__list-item">
+              Ежедневная уборка
+            </li>
+          </ul>
+        </div>
+        <div class="benefit__item benefit__item--security">
+          <h3 class="benefit__item-title">
+            Безопасность
+          </h3>
+          <ul class="benefit__menu-list">
+            <li class="benefit__menu__list-item">
+              Видеонаблюдение
+            </li>
+            <li class="benefit__menu__list-item">
+              Круглосуточная охрана
+            </li>
+            <li class="benefit__menu__list-item">
+              Охраняемая парковка
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
+  <section class="map">
 
+    <div class="map__form">
+      <h4 class="map__text">Мы на карте:</h4>
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3A3662291550df2dbe84ec504c34b00a17389e54714da880db7e38f5e46ebb66db&amp;source=constructor"
+        width="966" height="490" frameborder="0"></iframe>
+    </div>
 
+  </section>
+
+</main>
 <!-- <script src="js/main.min.js"></script> -->
-</body>
-
-</html>
+{%endblock%}
