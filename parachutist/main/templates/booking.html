@@ -36,22 +36,41 @@
                 <div class="booking-section__date">
                     <div class="booking-section__calendar">
                         <p class="booking-section__calendar-text">Заезд</p>
-                        <input class="booking-section__calendar-input" type="date">
+                        <input class="booking-section__calendar-input" id="arrival" type="date">
                     </div>
                     <div class="booking-section__calendar">
                         <p class="booking-section__calendar-text">Выезд</p>
-                        <input class="booking-section__calendar-input" type="date">
+                        <input class="booking-section__calendar-input" id="departure" type="date">
                     </div>
-                    <p class="booking-section__nights">
-                        Всего ночей: 3
+                    <p class="booking-section__nights" id="nights">
+                        Всего ночей: 0
                     </p>
-                    <button class="booking-section__btn">
-                        Найти номер
-                    </button>
                 </div>
                 <div class="booking-section__hotel-rooms">
                     <div class="booking-section__standard-single">
-                        
+                        <img class="standard-single__image" src="static/images/content/single-room.jpg" alt="single room">
+                        <div class="midle-info">
+                            <h4 class="name-room">
+                                Стандартный одноместный
+                            </h4>
+                            <p class="price-room">
+                                Цена за 1 ночь 2000 р
+                            </p>
+                            <p class="standard-single__text">
+                                Стандартный двухместный номер с собственным выходом на балкон и индивидуальным санузлом. Также в номере есть одна двухместная или две одноместные       кровати, телефон, телевизор, гардеробный шкаф, две прикроватные тумбочки и прочие предметы гостеприимства.
+                            </p>
+                            <p class="more">
+                                подробнее
+                            </p>
+                        </div>
+                        <div class="right__info">
+                            <p class="number__rooms">Кол. номеров</p>
+                            <select name="number" id="">
+                            </select>
+                            <p class="sum__price">
+                                Цена за 0 ночи 0 рублей
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="booking-section__hotel-rooms">
@@ -67,5 +86,6 @@
         </div>
     </section>
 </main>
+
+<script src="{%static  '/js/booking.js'%}"></script>
 {%endblock%}
-   
