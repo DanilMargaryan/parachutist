@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>debtors</title>
+    <link rel="stylesheet" href="{% static 'css/debtors-notebook.css' %}">
+</head>
+<body>
+    {% for loh in lohs %}
+    <div class="debtors-block">
+        <img class="photo" src="{{loh.photo.url}}">
+        <a class="ver-center" href={{loh.link}} target="_blank">{{loh.name}} {{loh.occupation}}</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
