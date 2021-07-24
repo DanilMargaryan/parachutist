@@ -1,4 +1,5 @@
 from django.contrib import admin
-from main.models import Room
+from main import models
 
-admin.site.register(Room)
+admin.site.register(models.Room)
+admin.site.register(models.Debtor)

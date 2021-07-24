@@ -1,4 +1,8 @@
+import os.path
+import urllib
+
 from django.db import models
+from django.core.files import File
 
 
 class Room(models.Model):
@@ -10,4 +14,10 @@ class Room(models.Model):
     phone = models.CharField(max_length=50, blank=True)
     email = models.EmailField(blank=True)
 
+
+class Debtor(models.Model):
+    name = models.CharField(max_length=255)
+    occupation = models.CharField(max_length=255)
+    link = models.CharField(max_length=512)
+    photo = models.ImageField(default='img/8901.jpg', upload_to='img')
 

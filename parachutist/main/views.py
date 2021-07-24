@@ -19,3 +19,10 @@ def booking(request):
         'rooms': models.Room.objects.all()
     }
     return render(request, 'booking.html', args)
+
+
+def debtors(request):
+    args = {
+        'lohs': models.Debtor.objects.all()
+    }
+    return render(request, 'developers.html', args)
