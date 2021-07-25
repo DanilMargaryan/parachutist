@@ -1,10 +1,11 @@
 .booking-section{
  background-image: url(/static/images/content/bg-booking.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
  padding: 60px 0px;
 }
 .booking-section__form{
     background-color: #fff;
-    margin-bottom: 60px;
     border: 1px solid #000;
     border-radius: 10px;
 }
@@ -15,6 +16,7 @@
     line-height: 38px;
     margin: 25px 25px 25px;
 }
+
 .booking-section__date{
     background-color: #E5E5E5;
     display: flex;
@@ -22,7 +24,14 @@
     justify-content: start;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
-    padding: 25px;
+}
+.booking-section__calendar{
+    margin: 25px;
+}
+.booking-section__nights{
+    margin: 25px;
+    font-size: 24px;
+    line-height: 29px;
 }
 .booking-section__calendar-text{
     margin-bottom: 3px;
@@ -39,15 +48,97 @@
 
 .booking-section__hotel-rooms{
     overflow: hidden;
-    margin: 25px;
-    max-width: 1150px;
-    border: 1px solid #19191A;
     border-radius: 10px;
+    margin: 25px;
+    border: 1px solid #19191A;
 }
+/*---------------- слайдер ----------------*/
+.rooms__slider{
+    width: 324px;
+}
+.rooms__slider-img{
+    width: 324px;
+    height: 216px;
+}
+.slick-dots{
+    list-style: none;
+    text-align: center;
+}
+.rooms__slider .slick-dots{
+    position: absolute;
+    margin-left: 5px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.slick-dots button{
+    font-size: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #E9AD28;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+}
+.slick-active button{
+    width: 16px;
+    height: 16px;
+}
+/*--------------------------------*/
 .booking-section__standard-single{
+    position: relative;
     display: flex;
 }
-.standard-single__image{
-    max-width: 326px;
-    max-height: 216px;
+.available__rooms{
+    position: absolute;
+    top: 0;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 7px 16px;
+    background-color: #E9AD28;;
+    color: #fff;
+}
+.middle__content{ 
+    width: 653px;
+    padding: 23px;
+    border-right: 1px solid #19191A;
+}
+.top__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nameRoom{
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+}
+.quantity__people{
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 10px;
+    padding-left: 30px;
+}
+.quantity__people::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: -3px;
+    width: 20px;
+    height: 20px;
+    background-image: url(/static/images/person.svg);
+
+}
+.info-txt{
+    font-size: 12px;
+    line-height: 15px;
+    color: #19191A;
+    margin-top: 20px;
+}
+.more__info{
+    width: 204px;
+    margin-top: 22px;
+    padding: 2px;
+    background-color: #E9AD28;
 }

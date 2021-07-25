@@ -21,6 +21,18 @@ function padLeadingZeros(num, size) {
     while (s.length < size) s = "0" + s;
     return s;
 }
+$(function(){
+
+    $('.rooms__slider').slick({
+        arrows: false,
+        dots:  true,
+        // autoplay: true,
+        // autoplaySpeed: 5000,
+        speed: 900,
+        fade: true
+    });
+    
+});
 var currentDate = new Date()
 arrival.min=`${currentDate.getFullYear()}-${padLeadingZeros(currentDate.getMonth() + 1, 2)}-${padLeadingZeros(currentDate.getDate(), 2)}`
 console.log(arrival.min)

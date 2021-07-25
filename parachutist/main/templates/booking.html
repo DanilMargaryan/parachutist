@@ -3,15 +3,18 @@
 {%block head%}
 {% load static %}
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+<link rel="stylesheet" href="{% static 'css/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/booking.css' %}">
 
 {%endblock%}
 
@@ -46,46 +49,94 @@
                         Всего ночей: 0
                     </p>
                 </div>
+
+
                 <div class="booking-section__hotel-rooms">
                     <div class="booking-section__standard-single">
-                        <img class="standard-single__image" src="static/images/content/single-room.jpg" alt="single room">
-                        <div class="midle-info">
-                            <h4 class="name-room">
-                                Стандартный одноместный
-                            </h4>
-                            <p class="price-room">
-                                Цена за 1 ночь 2000 р
+                        <div class="rooms__slider">
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room2.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room3.jpg" alt="images">
+                            </div>
+                        </div>
+                        <p class="available__rooms">Осталось 10 номеров</p>
+                        <div class="middle__content">
+                            <div class="top__info">
+                                <h6 class="nameRoom">Стандартный одноместный</h6>
+                                <p class="price__room">Цена за 1 ночь 2000р</p>
+                            </div>
+                            <p class="quantity__people">До 1 человека</p>
+                            <p class="info-txt">
+                                Стандартный двухместный номер с собственным выходом на балкон и индивидуальным санузлом. Также в номере есть одна двухместная или две одноместные кровати, телефон, телевизор, гардеробный шкаф, две прикроватные тумбочки и прочие предметы гостеприимства.
                             </p>
-                            <p class="standard-single__text">
-                                Стандартный двухместный номер с собственным выходом на балкон и индивидуальным санузлом. Также в номере есть одна двухместная или две одноместные       кровати, телефон, телевизор, гардеробный шкаф, две прикроватные тумбочки и прочие предметы гостеприимства.
-                            </p>
-                            <p class="more">
-                                подробнее
+                            <p class="more__info">
+                                Подробнее о номере
                             </p>
                         </div>
-                        <div class="right__info">
-                            <p class="number__rooms">Кол. номеров</p>
-                            <select name="number" id="">
-                            </select>
-                            <p class="sum__price">
-                                Цена за 0 ночи 0 рублей
-                            </p>
+                        <div class="right__content">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="booking-section__hotel-rooms">
+                    <div class="booking-section__quadruple-room">
+                        <div class="rooms__slider">
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room2.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room3.jpg" alt="images">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="booking-section__hotel-rooms">
-
+                    <div class="booking-section__double-room_2b">
+                        <div class="rooms__slider">
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room2.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room3.jpg" alt="images">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="booking-section__hotel-rooms">
-
+                    <div class="booking-section__double-room_1b">
+                        <div class="rooms__slider">
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room2.jpg" alt="images">
+                            </div>
+                            <div class="rooms__slider-item">
+                                <img class="rooms__slider-img" src="static/images/content/single-room3.jpg" alt="images">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="booking-section__hotel-rooms">
-
-                </div>
-            </div>    
+            </div>
         </div>
     </section>
 </main>
 
-<script src="{%static  '/js/booking.js'%}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{%static '/js/slick.min.js'%}"></script>
+<script src="{%static '/js/booking.js'%}"></script>
 {%endblock%}
