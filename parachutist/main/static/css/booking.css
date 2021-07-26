@@ -142,3 +142,34 @@
     padding: 2px;
     background-color: #E9AD28;
 }
+
+/*--------right__content-----------*/
+.right__content{
+    padding: 15px;
+    max-width: 160px;
+    font-size: 20px;
+
+}
+.number__rooms-txt{
+    font-size: 20px;
+    line-height: 24px;
+}
+.number__nights{
+    font-size: 18px;
+    margin-top: 71px;
+}
+.final__price-of-room{
+    margin-top: 6px;
+    font-weight: 900;
+    font-size: 24px;
+}
+/*--------------------------------*/
+.booking-section__bottom{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 25px;
+}
+.result{
+    margin-right: 40px;
+}
