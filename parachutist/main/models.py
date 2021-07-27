@@ -2,6 +2,7 @@ import os.path
 import urllib
 
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.files import File
 
 
@@ -21,3 +22,8 @@ class Debtor(models.Model):
     link = models.CharField(max_length=512)
     photo = models.ImageField(default='img/8901.jpg', upload_to='img')
 
+class Review(models.Model):
+    text = models.TextField()
+    name = models.CharField(max_length=255)
+    email = models.EmailField(blank=True)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])

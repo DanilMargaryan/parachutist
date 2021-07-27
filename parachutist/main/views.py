@@ -1,3 +1,4 @@
+from django.http import response, HttpResponse
 from django.shortcuts import render
 from main import models
 
@@ -26,3 +27,13 @@ def debtors(request):
         'lohs': models.Debtor.objects.all()
     }
     return render(request, 'developers.html', args)
+
+def add_new_review(request):
+    if request.method == 'POST':
+        review = models.Review.objects.create()
+        review.name = request.POST['name']
+        review.email = request.POST['email']
+        review.rating = request.POST['rating']
+        review.save()
+        return HttpResponse('1')
+    return HttpResponse('0')

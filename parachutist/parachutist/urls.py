@@ -27,6 +27,7 @@ urlpatterns = [
     path('services', v.services),
     path('booking', v.booking),
     path('info/debtors-notebook', v.debtors),
+    path('review/createreview', v.add_new_review),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
