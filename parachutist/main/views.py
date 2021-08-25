@@ -48,9 +48,9 @@ def add_new_review(request):
 
 def dynamic_lookup_view(request, book_id):
     try:
-        offset = int(book_id)
+        book_id = int(book_id)
     except ValueError:
         raise Http404()
-    dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (offset, dt)
+    dt = datetime.datetime.now() + datetime.timedelta(hours=book_id)
+    html = "<html><body>In %s hour(s), it will be %s.</body></html>" % (book_id, dt)
     return HttpResponse(html)
