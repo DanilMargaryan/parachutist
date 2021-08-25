@@ -28,6 +28,7 @@ urlpatterns = [
     path('booking', v.booking),
     path('info/debtors-notebook', v.debtors),
     path('review/createreview', v.add_new_review),
+    path('books/<int:book_id>/', v.dynamic_lookup_view, name='books')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
