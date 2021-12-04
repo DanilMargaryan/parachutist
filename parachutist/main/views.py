@@ -17,7 +17,7 @@ def services(request):
 
 def booking(request):
     args = {
-        'rooms': models.Room.objects.all()
+        'rooms': models.RoomType.objects.all()
     }
     return render(request, 'booking.html', args)
 
@@ -27,6 +27,7 @@ def debtors(request):
         'lohs': models.Debtor.objects.all()
     }
     return render(request, 'developers.html', args)
+
 
 def add_new_review(request):
     if request.method == 'POST':
