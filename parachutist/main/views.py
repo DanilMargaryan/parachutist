@@ -19,20 +19,20 @@ def services(request):
 
 
 def booking(request):
+    start_date = datetime.today()
+    end_date = datetime(2999, 11, 20, tzinfo=pytz.UTC)
+
     if request.method == 'GET':
         range_date_form = forms.RangeDate(request.GET)
         if range_date_form.is_valid():
-            start_date = range_date_form.cleaned_data['start_date']
-            if start_date is None:
-                start_date = datetime(1991, 1, 1, tzinfo=pytz.UTC)
-            end_date = range_date_form.cleaned_data['end_date']
-            if end_date is None:
-                end_date = datetime(2999, 11, 20, tzinfo=pytz.UTC)
-            overlapping_orders = models.Room.get_overlapping_orders_by_date(models.Room.objects, start_date, end_date)
-            rooms = models.Room.objects.exclude(id__in=overlapping_orders)
+            if range_date_form.cleaned_data['start_date'] is not None:
+                start_date = range_date_form.cleaned_data['start_date']
+            if range_date_form.cleaned_data['end_date'] is not None:
+                end_date = range_date_form.cleaned_data['end_date']
     else:
         range_date_form = forms.RangeDate()
-        rooms = models.Room.objects.filder(booked=False)
+    overlapping_orders = models.Room.get_overlapping_orders_by_date(models.Room.objects, start_date, end_date)
+    rooms = models.Room.objects.exclude(id__in=overlapping_orders)
 
     rooms_types = zip(models.RoomType.objects.all(),
                       [rt.get_rooms(rooms) for rt in models.RoomType.objects.all()])
