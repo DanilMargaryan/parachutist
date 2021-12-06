@@ -21,22 +21,14 @@
 {% block content %}
 
 <main class="main">
-    <!-- {% for room in rooms %}
-    <p>{{room.booked}} {{room.name}} {{room.last_name}} </p>
-    {% if room.booked %}
-
-    {% else %}
-
-    {% endif%}
-
-    {% endfor %} -->
     <section class="booking-section">
         <div class="container">
-            <div class="booking-section__form">
+            <form action="" method="post" class="booking-section__form" id="RangeDateFormId">
+                {% csrf_token %}
                 <h2 class="booking-section__title">
                     Бронирование номеров
                 </h2>
-                <form action="" method="get" id="RangeDateFormId" class="booking-section__date">
+                <div class="booking-section__date">
                     {% for form in range_date_form %}
                     <div class="booking-section__calendar">
                         <p class="booking-section__calendar-text">{{form.label}}</p>
@@ -46,7 +38,7 @@
                     <p class="booking-section__nights" id="nights">
                         Всего ночей: 0
                     </p>
-                </form>
+                </div>
                 {% for room, free_rooms in room_types %}
                 <div class="booking-section__hotel-rooms">
                     <div class="booking-section__standard-single">
@@ -57,7 +49,7 @@
                             </div>
                             {% endfor %}
                         </div>
-                        <p class="available__rooms">Осталось номеров {{free_rooms.count}}</p>
+                        <p class="available__rooms">Осталось номеров {{free_rooms}}</p>
                         <div class="middle__content">
                             <div class="top__info">
                                 <h4 class="nameRoom">{{room.room_type}}</h4>
@@ -69,8 +61,10 @@
                         </div>
                         <div class="right__content">
                             <p class="number__rooms-txt">Кол. номеров</p>
-                            <select name="rooms" id="rooms">
-
+                            <select onchange="OnChangeRoomCount({{room.id}}, this)" id="rooms">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
                             </select>
                             <p class="number__nights">Цена за 3 ночи</p>
                             <p class="final__price-of-room">{{room.price_for_3_nights}} р</p>
@@ -81,11 +75,11 @@
                 
                 <div class="booking-section__bottom">
                     <p class="result">ИТОГ: 6000₽</p>
-                    <a href="#" class="booking__btn">
+                    <button onclick="ContinueOrder()" class="booking__btn">
                         Продолжить
-                    </a>
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>        
 
     </section>

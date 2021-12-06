@@ -26,6 +26,8 @@ urlpatterns = [
     path('gallery', v.gallery),
     path('services', v.services),
     path('booking', v.booking),
+    path('booking/order', v.booking_order),
+    path('booking/success', v.booking_success),
     path('info/debtors-notebook', v.debtors),
     path('review/createreview', v.add_new_review),
 ]

@@ -9,6 +9,7 @@ from django.db.models import Q
 
 class RoomType(models.Model):
     room_type = models.CharField(max_length=100)
+    count = models.IntegerField()
     price = models.FloatField()
     price_for_3_nights = models.FloatField()
     capacity = models.IntegerField()
@@ -25,16 +26,14 @@ class RoomType(models.Model):
         return ImageModel.objects.filter(room_type=self)
 
 
-class Room(models.Model):
-    room_number = models.IntegerField()
+class BookedRoom(models.Model):
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
-    booked = models.BooleanField()
-    name = models.CharField(max_length=255, blank=True)
-    last_name = models.CharField(max_length=255, blank=True)
-    phone = models.CharField(max_length=50, blank=True)
-    email = models.EmailField(blank=True)
-    start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
+    name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=50)
+    email = models.EmailField()
+    start_date = models.DateField(blank=True)
+    end_date = models.DateField(blank=True)
 
     @staticmethod
     def get_overlapping_orders_by_date(activities, start_date, end_date):
@@ -45,10 +44,10 @@ class Room(models.Model):
         )
 
     def get_overlapping_orders(self):
-        return Room.get_overlapping_orders_by_date(Room.objects, self.start_date, self.end_date)
+        return BookedRoom.get_overlapping_orders_by_date(BookedRoom.objects, self.start_date, self.end_date)
 
     def __str__(self):
-        return f'№{self.room_number} {self.room_type.room_type}'
+        return f'{self.room_type.room_type} {self.last_name}'
 
 
 class ImageModel(models.Model):
