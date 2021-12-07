@@ -1,0 +1,55 @@
+{% extends "abstract-index.html" %}
+
+{% block head %}
+{% load static %}
+<title>Order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div style="margin: 20px;">
+
+{% for room_select in rooms_selected %}
+    <p>Тип комнаты: {{room_select.room.room_type}}, количество: {{room_select.count}}</p>
+{% endfor %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div>
+        <p>{{order_room_form.start_date.label}}</p>
+        <p>{{order_room_form.start_date}}</p>
+    </div>
+    <div>
+        <p>{{order_room_form.end_date.label}}</p>
+        <p>{{order_room_form.end_date}}</p>
+    </div>
+    <div>
+        <p>{{order_room_form.name.label}}</p>
+        <p>{{order_room_form.name}}</p>
+    </div>
+    <div>
+        <p>{{order_room_form.last_name.label}}</p>
+        <p>{{order_room_form.last_name}}</p>
+    </div>
+    <div>
+        <p>{{order_room_form.phone.label}}</p>
+        <p>{{order_room_form.phone}}</p>
+    </div>
+    <div>
+        <p>{{order_room_form.email.label}}</p>
+        <p>{{order_room_form.email}}</p>
+    </div>
+    <button type="submit">Забронировать</button>
+</form>
+
+</div>
+
+{% endblock %}
