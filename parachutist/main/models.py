@@ -23,7 +23,7 @@ class RoomType(models.Model):
 
     @property
     def images(self):
-        return ImageModel.objects.filter(room_type=self)
+        return ImageRoom.objects.filter(room_type=self)
 
 
 class BookedRoom(models.Model):
@@ -50,9 +50,17 @@ class BookedRoom(models.Model):
         return f'{self.room_type.room_type} {self.last_name}'
 
 
-class ImageModel(models.Model):
+class ImageRoom(models.Model):
     image = models.ImageField(upload_to='img', null=True)
     room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image.name
+
+
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='gallery', null=True)
+    type = models.CharField(max_length=100)
 
     def __str__(self):
         return self.image.name

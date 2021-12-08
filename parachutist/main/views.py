@@ -11,8 +11,11 @@ def index(request):
     return render(request, 'main/index.html')
 
 
-def gallery(request):
-    return render(request, 'gallery.html')
+def gallery(request, img_type):
+    args = {
+        'imgs': models.Gallery.objects.filter(type=img_type)
+    }
+    return render(request, 'gallery.html', args)
 
 
 def services(request):
