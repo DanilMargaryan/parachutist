@@ -2,14 +2,16 @@ var arrival = document.getElementById("id_start_date")
 var departure = document.getElementById("id_end_date")
 var nights = document.getElementById("nights")
 var rangeDateFormId = document.getElementById("RangeDateFormId")
-var roomsSelected = {}
+var FinalPrice = document.getElementById("FinalPrice")
 
+var roomsSelected = {}
 
 function onChangeDate(){
     rangeDateFormId.submit()
     ShowNights();
 }
 
+var diffDays
 
 function ShowNights()
 {
@@ -23,7 +25,7 @@ function ShowNights()
     var departureDate=Date.parse(departure.value)
 
     const diffTime = Math.abs(departureDate - arrivalDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
     nights.innerText= "Всего ночей: " + diffDays
 }
@@ -55,8 +57,9 @@ function ContinueOrder() {
     })
 }
 
+var Prices = {}
 
-function OnChangeRoomCount(room_type, element)
+function OnChangeRoomCount(room_type, element, price)
 {
     var count = parseInt(element.value)
     if (count == 0) {
@@ -66,8 +69,14 @@ function OnChangeRoomCount(room_type, element)
     else {
         roomsSelected[room_type] = count
     }
+    var sumPrice = 0
+    Prices[room_type] = price
+    for (const key in roomsSelected) 
+    {
+        sumPrice += Prices[key] * diffDays * roomsSelected[key]
+    }    
+    document.getElementById("FinalPrice").innerText = "ИТОГ: "+ sumPrice +"₽"
 }
-
 
 var currentDate = new Date()
 arrival.min=`${currentDate.getFullYear()}-${padLeadingZeros(currentDate.getMonth() + 1, 2)}-${padLeadingZeros(currentDate.getDate(), 2)}`

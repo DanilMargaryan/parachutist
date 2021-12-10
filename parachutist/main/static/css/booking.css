@@ -156,12 +156,13 @@
 }
 .number__nights{
     font-size: 18px;
-    margin-top: 71px;
+    margin-top: 25px;
 }
 .final__price-of-room{
     margin-top: 6px;
     font-weight: 900;
     font-size: 24px;
+    display: flex;
 }
 /*--------------------------------*/
 .booking-section__bottom{
