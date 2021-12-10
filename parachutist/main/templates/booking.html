@@ -63,8 +63,11 @@
                             <p class="number__rooms-txt">Кол. номеров</p>
                             <select onchange="OnChangeRoomCount({{room.id}}, this)" id="rooms">
                                 <option>0</option>
-                                <option>1</option>
-                                <option>2</option>
+                                {% with ''|center:free_rooms as range %}
+                                {% for _ in range %}
+                                    <option>{{forloop.counter}}</option>
+                                {% endfor %}
+                                {% endwith %}
                             </select>
                             <p class="number__nights">Цена за 3 ночи</p>
                             <p class="final__price-of-room">{{room.price_for_3_nights}} р</p>
