@@ -20,14 +20,15 @@
   <section class="top">
     <div class="container">
       <div class="top__inner">
-        <form class="top__booking-form" action="">
+        <form class="top__booking-form" action="/booking" method="post">
+          {% csrf_token %}
           <div class="top__form__calendar">
             <p class="top__calendar-text">Дата заезда</p>
-            <input class="top__calendar-input" type="date">
+            {{ range_date.start_date }}
           </div>
           <div class="top__form__calendar">
             <p class="top__calendar-text">Дата выезда</p>
-            <input class="top__calendar-input" type="date">
+            {{ range_date.end_date }}
           </div>
           <button class="top__booking-btn">
             Забронировать номер
@@ -154,4 +155,5 @@
 
 </main>
 <!-- <script src="js/main.min.js"></script> -->
+<script src="{%static '/js/range_date.js'%}"></script>
 {%endblock%}

@@ -23,7 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', v.index),
-    path('gallery', v.gallery),
+    path('gallery/<str:img_type>', v.gallery),
     path('services', v.services),
     path('booking', v.booking),
     path('booking/order', v.booking_order),

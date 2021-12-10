@@ -1,8 +1,40 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+
 from main import models
 
-admin.site.register(models.BookedRoom)
-admin.site.register(models.Debtor)
-admin.site.register(models.Review)
+
 admin.site.register(models.RoomType)
-admin.site.register(models.ImageModel)
+
+
+@admin.register(models.ImageRoom)
+class PersonAdmin(admin.ModelAdmin):
+    fields = ('image', 'thumb', 'room_type')
+    readonly_fields = ('thumb',)
+    list_display = ('thumb', 'room_type')
+
+    def thumb(self, obj):
+        return mark_safe("<img src='{}' style='height: 100px; width: 100px; object-fit: contain' />".format(obj.image.url))
+
+    thumb.allow_tags = True
+    thumb.__name__ = 'Фото'
+
+
+@admin.register(models.Gallery)
+class PersonAdmin(admin.ModelAdmin):
+    fields = ('image', 'thumb')
+    readonly_fields = ('thumb',)
+    list_display = ('thumb',)
+
+    def thumb(self, obj):
+        return mark_safe("<img src='{}' style='height: 100px; width: 100px; object-fit: contain' />".format(obj.image.url))
+
+    thumb.allow_tags = True
+    thumb.__name__ = 'Фото'
+
+
+@admin.register(models.BookedRoom)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'last_name', 'room_type', 'start_date', 'end_date')
+    list_filter = ('start_date',)
+

@@ -8,11 +8,20 @@ from main import models, forms
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    range_date = forms.RangeDate()
+    range_date.fields['start_date'].widget.attrs['class'] = 'top__calendar-input'
+    range_date.fields['end_date'].widget.attrs['class'] = 'top__calendar-input'
+    args = {
+        'range_date': range_date
+    }
+    return render(request, 'main/index.html', args)
 
 
-def gallery(request):
-    return render(request, 'gallery.html')
+def gallery(request, img_type):
+    args = {
+        'imgs': models.Gallery.objects.filter(type=img_type)
+    }
+    return render(request, 'gallery.html', args)
 
 
 def services(request):

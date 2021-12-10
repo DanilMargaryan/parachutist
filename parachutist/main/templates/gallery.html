@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-
+    {% for img in imgs %}
+        <img src="/media/{{img.image}}" alt="images">
+    {% endfor %}
 </body>
 </html>

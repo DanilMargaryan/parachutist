@@ -2,10 +2,10 @@ from django import forms
 
 
 class RangeDate(forms.Form):
-    start_date = forms.DateField(label='Заезд', required=False,
+    start_date = forms.DateField(label='Заезд', required=True,
                                  widget=forms.DateInput(attrs={'class': 'booking-section__calendar-input',
                                                                'type': 'date'}))
-    end_date = forms.DateField(label='Выезд', required=False,
+    end_date = forms.DateField(label='Выезд', required=True,
                                widget=forms.DateInput(attrs={'class': 'booking-section__calendar-input',
                                                              'type': 'date'}))
 
