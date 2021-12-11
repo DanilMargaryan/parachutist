@@ -74,9 +74,18 @@ def booking_order(request):
         order_room_form = forms.OrderRoom(request.GET)
     elif request.method == 'POST':
         order_room_form = forms.OrderRoom(request.POST)
+
         if order_room_form.is_valid():
+            overlapping_orders = models.BookedRoom.get_overlapping_orders_by_date(models.BookedRoom.objects,
+                                                                                  order_room_form.cleaned_data['start_date'],
+                                                                                  order_room_form.cleaned_data['end_date'])
             for room_type_id in rooms_count:
                 room_type = models.RoomType.objects.get(id=room_type_id)
+
+                rooms_left = room_type.count - room_type.get_rooms(overlapping_orders).count()
+                if rooms_left < rooms_count[room_type_id]:
+                    return render(request, 'booking-failure.html')
+
                 for _ in range(rooms_count[room_type_id]):
                     models.BookedRoom.objects.create(start_date=order_room_form.cleaned_data['start_date'],
                                                      end_date=order_room_form.cleaned_data['end_date'],

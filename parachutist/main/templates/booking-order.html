@@ -26,26 +26,32 @@
     <div>
         <p>{{order_room_form.start_date.label}}</p>
         <p>{{order_room_form.start_date}}</p>
+        <div class="invalid-feedback">{{order_room_form.start_date.errors}}</div>
     </div>
     <div>
         <p>{{order_room_form.end_date.label}}</p>
         <p>{{order_room_form.end_date}}</p>
+        <div class="invalid-feedback">{{order_room_form.end_date.errors}}</div>
     </div>
     <div>
         <p>{{order_room_form.name.label}}</p>
         <p>{{order_room_form.name}}</p>
+        <div class="invalid-feedback">{{form.address.errors}}</div>
     </div>
     <div>
         <p>{{order_room_form.last_name.label}}</p>
         <p>{{order_room_form.last_name}}</p>
+        <div class="invalid-feedback">{{order_room_form.last_name.errors}}</div>
     </div>
     <div>
         <p>{{order_room_form.phone.label}}</p>
         <p>{{order_room_form.phone}}</p>
+        <div class="invalid-feedback">{{order_room_form.phone.errors}}</div>
     </div>
     <div>
         <p>{{order_room_form.email.label}}</p>
         <p>{{order_room_form.email}}</p>
+        <div class="invalid-feedback">{{order_room_form.email.errors}}</div>
     </div>
     <button type="submit">Забронировать</button>
 </form>
