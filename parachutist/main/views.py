@@ -74,6 +74,7 @@ def booking_order(request):
         order_room_form = forms.OrderRoom(request.GET)
     elif request.method == 'POST':
         order_room_form = forms.OrderRoom(request.POST)
+        print(request.POST)
         if order_room_form.is_valid():
             for room_type_id in rooms_count:
                 room_type = models.RoomType.objects.get(id=room_type_id)

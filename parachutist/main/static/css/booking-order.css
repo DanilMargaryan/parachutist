@@ -1,0 +1,27 @@
+.booking__order-section{
+    background-image: url(/static/images/content/bg-booking.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 170px 0px;
+}
+.main__content{
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    background-color: #C4C4C4;
+}
+.booking__information{
+    max-width: 600px;
+    margin-right: 5px;
+    position: relative;
+}
+.result{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+.booking-btn{
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+}
