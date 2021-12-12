@@ -53,15 +53,14 @@
                         <div class="middle__content">
                             <div class="top__info">
                                 <h4 class="nameRoom">{{room.room_type}}</h4>
-                                <p class="price__room">Цена за 1 ночь {{room.price}}р</p>
                             </div>
                             <p class="quantity__people">До {{room.capacity}} человек(а)</p>
                             <p class="info-txt">{{room.description}}</p>
                             <p class="more__info">Подробнее о номере</p>
                         </div>
                         <div class="right__content">
-                            <p class="number__rooms-txt">Кол. номеров</p>
-                            <select onchange="OnChangeRoomCount({{room.id}}, this)" id="rooms">
+                            <p class="number__rooms-txt">количество бронируемых номеров</p>
+                            <select onchange="OnChangeRoomCount({{room.id}}, this, {{room.price}})" id="rooms">
                                 <option>0</option>
                                 {% with ''|center:free_rooms as range %}
                                 {% for _ in range %}
@@ -69,15 +68,15 @@
                                 {% endfor %}
                                 {% endwith %}
                             </select>
-                            <p class="number__nights">Цена за 3 ночи</p>
-                            <p class="final__price-of-room">{{room.price_for_3_nights}} р</p>
+                            <p class="number__nights" id="nights {{room.id}}">Цена за 1 ночь</p>
+                            <div class="final__price-of-room">{{room.price}} <p style = "font-weight: 300;">₽</p></div>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
                 
                 <div class="booking-section__bottom">
-                    <p class="result">ИТОГ: 6000₽</p>
+                    <p class="result" id="FinalPrice">ИТОГ: 0</p>
                     <button onclick="ContinueOrder()" class="booking__btn">
                         Продолжить
                     </button>
