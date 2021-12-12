@@ -1,1 +1,4 @@
 fail
+{% for room_select in rooms_selected %}
+    <p>Тип комнаты: {{room_select.room.room_type}}, количество: {{room_select.count}}</p>
+{% endfor %}
