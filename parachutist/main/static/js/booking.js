@@ -52,9 +52,13 @@ $(function(){
 
 
 function ContinueOrder() {
+    if(Object.keys(roomsSelected).length == 0){
+        window.alert('вы не выбрали номер')
+    }else
     post({
         'rooms': JSON.stringify(roomsSelected),
     })
+
 }
 
 var Prices = {}
