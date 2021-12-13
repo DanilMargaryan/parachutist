@@ -21,6 +21,3 @@ class OrderRoom(forms.Form):
     phone = forms.IntegerField(label='Номер телефона', widget=forms.TextInput(attrs={'type': 'tel', 'class': 'form-control'}))
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
-    def clean(self):
-        for field in self.errors:
-            self[field].field.widget.attrs['class'] += ' ' + self.error_css_class

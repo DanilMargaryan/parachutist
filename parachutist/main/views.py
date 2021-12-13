@@ -99,6 +99,9 @@ def booking_order(request):
                                                      email=order_room_form.cleaned_data['email'],
                                                      room_type=room_type)
             return render(request, 'booking-success.html', args)
+        else:
+            for field in order_room_form.errors:
+                order_room_form[field].field.widget.attrs['class'] += ' ' + order_room_form.error_css_class
 
     args['order_room_form'] = order_room_form
     return render(request, 'booking-order.html', args)
