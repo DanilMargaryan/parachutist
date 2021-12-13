@@ -2,7 +2,7 @@
 
 {% block head %}
 {% load static %}
-<title>Order</title>
+<title>Бронирование</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet">
@@ -25,24 +25,28 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div>
-                        <label for="validationDefault01">{{order_room_form.name.label}}</label>
-                        {{order_room_form.name}}
-                    </div>
-                    <div>
-                        <label for="validationDefault02">{{order_room_form.last_name.label}}</label>
+                        <label for="{{order_room_form.last_name.id_for_label}}">{{order_room_form.last_name.label}}</label>
                         {{order_room_form.last_name}}
+                        <div class="invalid-feedback">{{order_room_form.last_name.errors}}</div>
                     </div>
                     <div>
-                        <label for="validationDefault02">{{order_room_form.phone.label}}</label>
+                        <label for="{{order_room_form.name.id_for_label}}">{{order_room_form.name.label}}</label>
+                        {{order_room_form.name}}
+                        <div class="invalid-feedback">{{order_room_form.name.errors}}</div>
+                    </div>
+                    <div>
+                        <label for="{{order_room_form.phone.id_for_label}}">{{order_room_form.phone.label}}</label>
                         {{order_room_form.phone}}
+                        <div class="invalid-feedback">{{order_room_form.phone.errors}}</div>
                     </div>
                     <div>
-                        <label for="validationDefaultUsername">{{order_room_form.email.label}}</label>
+                        <label for="{{order_room_form.email.id_for_label}}">{{order_room_form.email.label}}</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroupPrepend2">@</span>
                             </div>
                             {{order_room_form.email}}
+                            <div class="invalid-feedback">{{order_room_form.email.errors}}</div>
                         </div>
                     </div>
                 </div>
@@ -97,5 +101,6 @@
     {% endfor %}
     document.getElementById('sumPrice').innerText = 'ИТОГ: ' + sumPrice + '₽'
 </script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="{% static 'bootstrap-5.1.3-dist/js/bootstrap.min.js' %}"></script>
 {% endblock %}

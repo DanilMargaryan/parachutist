@@ -62,6 +62,10 @@ def booking_order(request):
     rooms_selected = []
     order_room_form = forms.OrderRoom()
 
+    args = {
+        'rooms_selected': rooms_selected,
+    }
+
     if 'rooms' in request.session:
         rooms_count = request.session['rooms']
         for room_type in models.RoomType.objects.filter(id__in=rooms_count.keys()):
@@ -74,10 +78,18 @@ def booking_order(request):
         order_room_form = forms.OrderRoom(request.GET)
     elif request.method == 'POST':
         order_room_form = forms.OrderRoom(request.POST)
-        print(request.POST)
+        args['order_room_form'] = order_room_form
         if order_room_form.is_valid():
+            overlapping_orders = models.BookedRoom.get_overlapping_orders_by_date(models.BookedRoom.objects,
+                                                                                  order_room_form.cleaned_data['start_date'],
+                                                                                  order_room_form.cleaned_data['end_date'])
             for room_type_id in rooms_count:
                 room_type = models.RoomType.objects.get(id=room_type_id)
+
+                rooms_left = room_type.count - room_type.get_rooms(overlapping_orders).count()
+                if rooms_left < rooms_count[room_type_id]:
+                    return render(request, 'booking-failure.html', args)
+
                 for _ in range(rooms_count[room_type_id]):
                     models.BookedRoom.objects.create(start_date=order_room_form.cleaned_data['start_date'],
                                                      end_date=order_room_form.cleaned_data['end_date'],
@@ -86,17 +98,10 @@ def booking_order(request):
                                                      phone=order_room_form.cleaned_data['phone'],
                                                      email=order_room_form.cleaned_data['email'],
                                                      room_type=room_type)
-            return redirect('/booking/success')
+            return render(request, 'booking-success.html', args)
 
-    args = {
-        'rooms_selected': rooms_selected,
-        'order_room_form': order_room_form,
-    }
+    args['order_room_form'] = order_room_form
     return render(request, 'booking-order.html', args)
-
-
-def booking_success(request):
-    return render(request, 'booking-success.html')
 
 
 def debtors(request):
