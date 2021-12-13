@@ -78,6 +78,7 @@ def booking_order(request):
         order_room_form = forms.OrderRoom(request.GET)
     elif request.method == 'POST':
         order_room_form = forms.OrderRoom(request.POST)
+        args['order_room_form'] = order_room_form
         if order_room_form.is_valid():
             overlapping_orders = models.BookedRoom.get_overlapping_orders_by_date(models.BookedRoom.objects,
                                                                                   order_room_form.cleaned_data['start_date'],
