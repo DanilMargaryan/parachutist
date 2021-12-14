@@ -6,6 +6,13 @@ var FinalPrice = document.getElementById("FinalPrice")
 
 var roomsSelected = {}
 
+
+$(document).ready(() => {
+    for (select of document.getElementsByClassName('room_selceted_count'))
+        select.value = 0
+})
+
+
 function onChangeDate(){
     rangeDateFormId.submit()
     ShowNights();
@@ -20,7 +27,6 @@ function ShowNights()
     
     if (arrival.value=="" || departure.value=="")
         return
-    console.log(arrival.value)
     var arrivalDate=Date.parse(arrival.value)
     var departureDate=Date.parse(departure.value)
 
@@ -84,7 +90,6 @@ function OnChangeRoomCount(room_type, element, price)
 
 var currentDate = new Date()
 arrival.min=`${currentDate.getFullYear()}-${padLeadingZeros(currentDate.getMonth() + 1, 2)}-${padLeadingZeros(currentDate.getDate(), 2)}`
-console.log(arrival.min)
 
 arrival.addEventListener('change',onChangeDate)
 departure.addEventListener('change',onChangeDate)

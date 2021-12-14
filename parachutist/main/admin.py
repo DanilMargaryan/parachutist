@@ -8,7 +8,7 @@ admin.site.register(models.RoomType)
 
 
 @admin.register(models.ImageRoom)
-class PersonAdmin(admin.ModelAdmin):
+class IamgeRoomAdmin(admin.ModelAdmin):
     fields = ('image', 'thumb', 'room_type')
     readonly_fields = ('thumb',)
     list_display = ('thumb', 'room_type')
@@ -24,7 +24,7 @@ class PersonAdmin(admin.ModelAdmin):
 class PersonAdmin(admin.ModelAdmin):
     fields = ('image', 'thumb', 'type')
     readonly_fields = ('thumb',)
-    list_display = ('thumb',)
+    list_display = ('thumb', 'type')
 
     def thumb(self, obj):
         return mark_safe("<img src='{}' style='height: 100px; width: 100px; object-fit: contain' />".format(obj.image.url))

@@ -58,7 +58,8 @@
 }
 .rooms__slider-img{
     width: 324px;
-    height: 216px;
+    height: 240px;
+    object-fit:cover;
 }
 .slick-dots{
     list-style: none;

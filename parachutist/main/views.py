@@ -5,6 +5,10 @@ import pytz
 from django.http import response, HttpResponse
 from django.shortcuts import render, redirect
 from main import models, forms
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from parachutist import settings
 
 
 def index(request):
@@ -84,12 +88,12 @@ def booking_order(request):
                                                                                   order_room_form.cleaned_data['start_date'],
                                                                                   order_room_form.cleaned_data['end_date'])
             for room_type_id in rooms_count:
-                room_type = models.RoomType.objects.get(id=room_type_id)
-
                 rooms_left = room_type.count - room_type.get_rooms(overlapping_orders).count()
                 if rooms_left < rooms_count[room_type_id]:
                     return render(request, 'booking-failure.html', args)
 
+            for room_type_id in rooms_count:
+                room_type = models.RoomType.objects.get(id=room_type_id)
                 for _ in range(rooms_count[room_type_id]):
                     models.BookedRoom.objects.create(start_date=order_room_form.cleaned_data['start_date'],
                                                      end_date=order_room_form.cleaned_data['end_date'],
@@ -98,6 +102,14 @@ def booking_order(request):
                                                      phone=order_room_form.cleaned_data['phone'],
                                                      email=order_room_form.cleaned_data['email'],
                                                      room_type=room_type)
+            html_email = render_to_string('email_send.html', args)
+            text_content = strip_tags(html_email)
+            email = EmailMultiAlternatives('Успешно забронировано',
+                                           text_content,
+                                           settings.EMAIL_HOST_USER,
+                                           [order_room_form.cleaned_data['email']])
+            email.attach_alternative(html_email, 'text/html')
+            email.send()
             return render(request, 'booking-success.html', args)
         else:
             for field in order_room_form.errors:
