@@ -22,7 +22,7 @@ class PersonAdmin(admin.ModelAdmin):
 
 @admin.register(models.Gallery)
 class PersonAdmin(admin.ModelAdmin):
-    fields = ('image', 'thumb')
+    fields = ('image', 'thumb', 'type')
     readonly_fields = ('thumb',)
     list_display = ('thumb',)
 
