@@ -55,12 +55,11 @@
                                 <h4 class="nameRoom">{{room.room_type}}</h4>
                             </div>
                             <p class="quantity__people">До {{room.capacity}} человек(а)</p>
-                            <p class="info-txt">{{room.description}}</p>
-                            <p class="more__info">Подробнее о номере</p>
+                            <p style="white-space: pre-line;" class="info-txt">{{room.description}}</p>
                         </div>
                         <div class="right__content">
                             <p class="number__rooms-txt">количество бронируемых номеров</p>
-                            <select onchange="OnChangeRoomCount({{room.id}}, this, {{room.price}})" id="rooms">
+                            <select class="room_selceted_count" onchange="OnChangeRoomCount({{room.id}}, this, {{room.price}})" id="rooms">
                                 <option>0</option>
                                 {% with ''|center:free_rooms as range %}
                                 {% for _ in range %}
@@ -77,7 +76,7 @@
                 
                 <div class="booking-section__bottom">
                     <p class="result" id="FinalPrice">ИТОГ: 0</p>
-                    <button onclick="ContinueOrder()" class="booking__btn">
+                    <button type="button" onclick="ContinueOrder()" class="booking__btn">
                         Продолжить
                     </button>
                 </div>
